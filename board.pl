@@ -1,13 +1,3 @@
-:- dynamic at/2, hero_is_at/1, i_am_holding/1, alive/1,
-           lit/1, visible_object/1.
-           
-/*
-    n
-  w   e
-    s
-*/
-
-hero_is_at(room0).
 
 path(room0, d, room1).
 path(room1, u, room0).

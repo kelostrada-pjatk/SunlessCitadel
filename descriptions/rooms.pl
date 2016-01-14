@@ -1,6 +1,8 @@
 :- discontiguous title/1.
 :- discontiguous describe/1.
 
+/* Rules to describe rooms */
+
 title(room0) :-
 	write('Dark Ravine'), nl.
 describe(room0) :-
