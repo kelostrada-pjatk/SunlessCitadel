@@ -1,5 +1,3 @@
 :- include('common').
-:- include('board').
 :- include('descriptions/load').
-:- include('game').
-:- include('items').
+:- include('logic/load').
