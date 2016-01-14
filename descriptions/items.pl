@@ -1,7 +1,3 @@
-:- discontiguous title/1.
-:- discontiguous describe/1.
-:- discontiguous plural/1.
-
 /* Rules to describe items */
 
 plural(bones).

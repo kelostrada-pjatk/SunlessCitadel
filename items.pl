@@ -1,4 +1,3 @@
-:- dynamic at/2.
 
 /*
 is_item				- Rule define objects which can be carried by hero

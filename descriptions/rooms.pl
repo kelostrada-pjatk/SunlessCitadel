@@ -1,5 +1,3 @@
-:- discontiguous title/1.
-:- discontiguous describe/1.
 
 /* Rules to describe rooms */
 
