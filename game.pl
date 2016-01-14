@@ -1,4 +1,4 @@
-:- dynamic hero_is_at/1, at/2.
+:- dynamic hero_is_at/1, at/2, invisible_object/1.
 
 hero_is_at(room0).
 
@@ -31,19 +31,9 @@ look :-
 	nl,
 	notice_objects_at(Place),
 	nl.
-	
-/* These rules set up a loop to mention all the objects in your vicinity. */
-
-notice_objects_at(Place) :-
-	at(X, Place),
-	visible_object(X),
-	write('There is a '), write(X), write(' here.'), nl,
-	fail.
-
-notice_objects_at(_).
 
 make_visible(X) :-
-	visible_object(X).
+	\+ invisible_object(X).
 
 make_visible(X) :-
-	assert(visible_object(X)).
+	retract(invisible_object(X)).
