@@ -1,7 +1,7 @@
 /* Rule to display available skills */
 
 skills :-
-	write('search. 				-- to search the place hero is standing.'),
+	write('search.                 -- to search the place hero is standing.'),
 	nl.
 	
 /* Concrete skills */

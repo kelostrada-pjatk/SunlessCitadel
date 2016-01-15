@@ -1,4 +1,3 @@
-
 /*
 is_item				-- Rule defines objects which can be carried by hero
 is_environement		-- Rule defines objects which are environement (cannot be moved)
@@ -7,10 +6,13 @@ is_in_inventory		-- Rule defines objects which are in heros inventory
 
 /* Inventory starting objects */
 
-is_item(rope).
-is_in_inventory(rope).
+
 
 /* Room0 starting objects */
+
+is_item(rope).
+at(rope, room0).
+invisible_object(rope).
 
 is_environement(pillars).
 at(pillars, room0).

@@ -12,14 +12,16 @@ inventory :-
 drop(String) :-
 	string(String),
 	title(X, String),
-	drop(X).
+	drop(X),
+	!.
 
 drop(Object) :-
 	hero_is_at(Place),
 	is_in_inventory(Object),
 	retract(is_in_inventory(Object)),
 	assert(at(Object, Place)),
-	write("Hero dropped "), title(Object), write("."), nl.
+	write("Hero dropped "), title(Object), write("."), nl,
+	!.
 	
 drop(_) :-
 	write('Hero is not carrying this.'), nl.
@@ -29,29 +31,61 @@ drop(_) :-
 take(String) :-
 	string(String),
 	title(X, String),
-	take(X).
+	take(X),
+	!.
 
 take(Object) :-
 	is_in_inventory(Object),
-	write('It is already in inventory.'),
-	nl.
+	write('It is already in inventory.'), nl,
+	!.
 	
 take(Object) :-
 	hero_is_at(Place),
 	at(Object, Place),
 	is_item(Object),
+	\+ invisible_object(Object),
 	retract(at(Object, Place)),
 	assert(is_in_inventory(Object)),
-	write("Hero took "), title(Object), write("."), nl.
+	write("Hero took "), title(Object), write("."), nl,
+	!.
+	
+take(X) :-
+	hero_is_at(Place),
+	at(X, Place),
+	\+ invisible_object(X), 
+	write('Hero cannot take it.'), nl,
+	!.
 	
 take(_) :-
-	write('Hero cannot take it.'), nl.
+	write('Hero cannot see it.'), nl.
 	
 /* Rule to use items */
-
+		
 use(String) :-
 	title(X, String),
-	use(X).
+	use(X),
+	!.
+	
+use(X, _) :-
+	is_item(X),
+	\+ is_in_inventory(X),
+	use(X),
+	!.
+	
+use(X) :-
+	is_item(X),
+	\+ is_in_inventory(X),
+	write('Hero cannot use '), title(X), write(' when it is laying on the ground. Hero should pick it up first.'),
+	nl,
+	!.
 
+use(rope, pillars) :-
+	write(':)'), nl,
+	!.
+	
+use(X, Y) :-
+	write('Hero doesn''t know how to use '), title(X), write(' on '), title(Y), write('.'), nl,
+	!.  
+	
 use(_) :-
 	write('Hero doesn''t know how to use that.'), nl.

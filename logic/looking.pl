@@ -26,7 +26,8 @@ look :-
 look(String) :-
 	string(String),
 	title(Object, String),
-	look(Object).
+	look(Object),
+	!.
 
 /* This rule tells how to look at objects placed in a room hero is standing */
 
@@ -43,11 +44,11 @@ look(Object) :-
 	is_in_inventory(Object),
 	describe(Object),
 	nl.
-		
+
 look(_) :-
-	write('You can''t see that.'),
+	write('Hero can''t see that.'),
 	nl.
-	
+
 /* This rule makes invisible objects visible. It is used for instance for hidden doors */
 	
 make_visible(X) :-
