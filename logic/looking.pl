@@ -33,6 +33,7 @@ look(String) :-
 look(Object) :-
 	hero_is_at(Place),
 	at(Object, Place),
+	\+ invisible_object(Object),
 	describe(Object),
 	nl.
 	
@@ -46,6 +47,7 @@ look(Object) :-
 look(_) :-
 	write('You can''t see that.'),
 	nl.
+	
 /* This rule makes invisible objects visible. It is used for instance for hidden doors */
 	
 make_visible(X) :-

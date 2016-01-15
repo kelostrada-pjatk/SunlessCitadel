@@ -8,6 +8,7 @@ instructions :-
 	write('start.                   -- to start the game.'), nl,
 	write('n.  s.  e.  w.  u.  d.   -- to go in that direction.'), nl,
 	write('inventory.				-- to list objects hero is carrying.'), nl,
+	write('skills.					-- to list what skills can hero use.'), nl,
 	write('take(Object).            -- to pick up an object.'), nl,
 	write('drop(Object).            -- to put down an object.'), nl,
 	write('use(Object).             -- to manipulate an object.'), nl,

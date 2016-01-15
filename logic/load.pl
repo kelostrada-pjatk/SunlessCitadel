@@ -4,3 +4,4 @@
 :- include('movement').
 :- include('looking').
 :- include('inventory').
+:- include('skills').

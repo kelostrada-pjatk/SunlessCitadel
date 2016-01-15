@@ -10,6 +10,15 @@ is_in_inventory		-- Rule defines objects which are in heros inventory
 is_item(rope).
 is_in_inventory(rope).
 
+/* Room0 starting objects */
+
+is_environement(pillars).
+at(pillars, room0).
+invisible_object(pillars).
+
+is_environement(ravine).
+at(ravine, room0).
+
 /* Room1 starting objects */
 is_item(bones).
 at(bones, room1).
