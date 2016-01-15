@@ -1,5 +1,4 @@
 
-path(room0, d, room1).
 path(room1, u, room0).
 path(room1, d, room2).
 path(room2, u, room1).
@@ -9,7 +8,7 @@ path(room3, w, room4).
 path(room4, e, room3).
 path(room4, s, room5).
 path(room5, n, room4).
-path(room4, s, room6).
+path(room4, w, room6).
 path(room6, n, room4).
 path(room4, n, room13a).
 path(room13a, e, room4).

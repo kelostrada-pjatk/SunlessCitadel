@@ -5,3 +5,4 @@
 :- include('looking').
 :- include('inventory').
 :- include('skills').
+:- include('objects_usage').
