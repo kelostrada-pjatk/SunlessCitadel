@@ -13,6 +13,9 @@ describe(X) :-
 
 look :-
 	hero_is_at(Place),
+	write('Hero is standing at '),
+	title(Place),
+	nl,
 	describe(Place),
 	nl,
 	notice_objects_at(Place),
