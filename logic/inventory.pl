@@ -96,16 +96,18 @@ use(S1, S2) :-
 	!.
 	
 use(X, _) :-
-	\+ hero_sees(X),
-	write('Hero cannot see '), title(X), write('.'), nl.
+	p_visible(X), !.
 	
 use(_, X) :-
-	\+ hero_sees(X),
-	write('Hero cannot see '), title(X), write('.'), nl.
+	p_visible(X), !.
 
 use(X) :-
+	p_visible(X), !.
+	
+p_visible(X) :-
 	\+ hero_sees(X),
-	write('Hero cannot see '), title(X), write('.'), nl.
+	write('Hero cannot see '), title(X), write('.'), nl,
+	!.
 	
 use(X, _) :-
 	is_item(X),
@@ -118,6 +120,10 @@ use(X) :-
 	\+ is_in_inventory(X),
 	write('Hero cannot use '), title(X), write(' when it is laying on the ground. Hero should pick it up first.'),
 	nl,
+	!.
+
+use(X) :-
+	p_use(X),
 	!.
 
 use(X, Y) :-
