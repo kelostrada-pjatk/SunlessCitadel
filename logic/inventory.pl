@@ -106,6 +106,7 @@ use(X) :-
 	
 p_visible(X) :-
 	\+ hero_sees(X),
+	title(X, _),
 	write('Hero cannot see '), title(X), write('.'), nl,
 	!.
 	
@@ -120,6 +121,20 @@ use(X) :-
 	\+ is_in_inventory(X),
 	write('Hero cannot use '), title(X), write(' when it is laying on the ground. Hero should pick it up first.'),
 	nl,
+	!.
+	
+use(Obstacle) :-
+	blocks(Here, There, Obstacle),
+	hero_is_at(Here),
+	path(Here, Direction, There),
+	open(Obstacle),
+	go(Direction),
+	!;
+	blocks(Here, There, Obstacle),
+	path(There, Direction, Here),
+	hero_is_at(There),
+	open(Obstacle),
+	go(Direction),
 	!.
 
 use(X) :-

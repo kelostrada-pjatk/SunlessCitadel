@@ -15,6 +15,16 @@ d :- go(d), !.
 go(Direction) :-
 	hero_is_at(Here),
 	path(Here, Direction, There),
+	\+ blocks(Here, There, _),
+	retract(hero_is_at(Here)),
+	assert(hero_is_at(There)),
+	look.
+	
+go(Direction) :-
+	hero_is_at(Here),
+	path(Here, Direction, There),
+	blocks(Here, There, Obstacle),
+	open(Obstacle),
 	retract(hero_is_at(Here)),
 	assert(hero_is_at(There)),
 	look.

@@ -27,3 +27,5 @@ at(bones, room1).
 
 is_environement(ring_of_stones).
 at(ring_of_stones, room1).
+
+is_environement(hanging_rope).

@@ -1,4 +1,5 @@
-
+path(room0, d, room1).
+blocks(room0, room1, hanging_rope).
 path(room1, u, room0).
 path(room1, d, room2).
 path(room2, u, room1).
