@@ -6,3 +6,4 @@
 :- include('inventory').
 :- include('skills').
 :- include('objects_usage').
+:- include('status').

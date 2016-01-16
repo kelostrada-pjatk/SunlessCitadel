@@ -11,7 +11,7 @@ title(rope, "Rope").
 description(rope, "Good firm rope which can be used to climb up or down the mountains safely.").
 
 title(hanging_rope, "Hanging Rope").
-description(hanging_rope, "The rope is hanging from the wall").
+description(hanging_rope, "The rope is hanging on the wall").
 
 plural(pillars).
 title(pillars, "Pillars").

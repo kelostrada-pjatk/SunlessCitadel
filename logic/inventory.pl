@@ -81,6 +81,8 @@ use(String) :-
 	use(X),
 	!.
 
+/* Use two items in any combination (one of them or both might be strings)  */
+
 use(S1, S2) :-
 	title(X, S1),
 	\+ title(_, S2),
@@ -95,6 +97,8 @@ use(S1, S2) :-
 	use(X, Y), 
 	!.
 	
+/* If hero cannot see something */
+
 use(X, _) :-
 	p_visible(X), !.
 	
@@ -123,6 +127,8 @@ use(X) :-
 	nl,
 	!.
 	
+/* Rule to use obstacles to make Hero move */	
+
 use(Obstacle) :-
 	blocks(Here, There, Obstacle),
 	hero_is_at(Here),
@@ -136,6 +142,8 @@ use(Obstacle) :-
 	open(Obstacle),
 	go(Direction),
 	!.
+
+/* Concrete usage - I made kinda private methods by prefixing them with "p_" so I can define them in different files */
 
 use(X) :-
 	p_use(X),
